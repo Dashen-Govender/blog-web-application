@@ -1,0 +1,121 @@
+<%- include("partials/header.ejs") %>
+
+<div class="Grid">
+  <form class="NewUser" action="/CreateUser" method="POST">
+    <button type="submit" name="usersubmit" class="Primary-Button">
+      create user
+    </button>
+    <% if (users.length === 8) {%>
+    <input
+      type="text"
+      value="max limit"
+      name="username"
+      id="Username"
+      style="color: darkgray"
+      readonly
+    />
+    <%} else { %>
+    <input type="text" name="username" id="Username" required />
+    <% } %>
+  </form>
+  <form class="Users" action="/SelectUser" method="POST">
+    <% users.forEach(function(user) { %>
+    <button
+      class="User"
+      type="submit"
+      name="user"
+      value="<%= user.name %>"
+      id="<%= user.id %>"
+    >
+      <%= user.name %>
+    </button>
+    <%});%>
+  </form>
+  <form class="ViewPosts" action="/ViewPost" method="POST">
+    <button
+      id="viewpostsbtn"
+      type="submit"
+      name="viewpost"
+      class="Primary-Button"
+    >
+      view posts
+    </button>
+</textarea
+    >
+  </form>
+  <form class="CreatePost" action="/CreatePost" method="POST">
+    <button type="submit" name="createpost" class="Primary-Button">
+      create post
+    </button>
+  </form>
+  <form class="UpdatePost" action="/UpdatePost" method="POST">
+    <button type="submit" name="updatepost" class="Primary-Button">
+      update post
+    </button>
+  </form>
+  <form class="DeletePost" action="/DeletePost" method="POST">
+    <button type="submit" name="deletepost" class="Primary-Button">
+      delete post
+    </button>
+  </form>
+  <form class="SubmitEntry" action="/submitEntry" method="post">
+    <% if (locals.option === "none") { %>
+      <textarea class="Display" readonly></textarea>
+      <div class="column">
+        <label id="currentUser"><%= currentUsername %></label>
+      </div>
+    <% } else if (locals.option === "vp") {
+      let array = [];
+      posts.forEach(function (post) { 
+        const user = users.find((user) => user.id === post.userid); 
+        array.push(user.name); 
+        array.push(post.message); 
+      }); 
+    %>
+    <textarea class="Display" readonly ><%= array.join("\n\n") %></textarea>
+    <div class="column">
+      <label id="currentUser"><%= currentUsername %></label>
+    </div>
+    <% } else if (locals.option === "cp") { %>
+    <textarea class="Display" name="Editor"></textarea>
+    <div class="column">
+      <label id="currentUser"><%= currentUsername %></label>
+      <input id="SubmitBtn" type="submit" value="post" name="SubmitEntry" />
+    </div>
+    <% } else if (locals.option === "up") {%>
+    <div class="uEditor">
+      <ul id="updateList">
+          <% posts.forEach(function (post) { 
+            if (post.userid === currentUserId) {%>
+          <li class="item i<%= post.id %>" id="<%= post.id %>" name="message">
+            <%= post.message %>
+          </li>
+          <br/>
+          <% }
+            }); %>
+      </ul>  
+    </div>
+    <div class="column" id="uColumn">
+      <label id="currentUser"><%= currentUsername %></label>
+    </div>
+    <% } else if (locals.option === "dp") { %>
+    <div class="dEditor">
+      <ul id="deleteList">
+          <% posts.forEach(function (post) { 
+            if (post.userid === currentUserId) {%>
+          <li class="item i<%= post.id %>" id="<%= post.id %>" name="message">
+            <%= post.message %>
+          </li>
+          <br/>
+          <% }
+            }); %>
+      </ul>  
+    </div>
+    <div class="column" id="dColumn">
+      <label id="currentUser"><%= currentUsername %></label>
+    </div>  
+    <% } %>
+  </form>
+</div>
+
+<%- include("partials/footer.ejs") %>

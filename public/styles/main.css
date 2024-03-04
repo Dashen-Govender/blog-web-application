@@ -1,0 +1,250 @@
+body {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/main-background.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 120px;
+  background-image: url(../assets/header.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100vw 120px;
+}
+
+header h1 {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: antiquewhite;
+  font-size: 34px;
+}
+
+.Grid {
+  display: grid;
+  position: absolute;
+  width: 1000px;
+  height: 320px;
+  grid-template-columns: 140px 360px 500px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+#Username {
+  height: 36px;
+  margin-left: 10px;
+  width: 300px;
+  padding: 0px 10px;
+  border: 1px solid #510b31;
+  font-size: 18px;
+  color: #510b31;
+}
+
+.Users {
+  grid-area: 1 / 3 / 2 / 4;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 490px;
+  height: 48px;
+}
+
+.User {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  padding: 0px;
+  border: 1px solid #510b31;
+  background-color: rgb(255, 177, 157);
+  width: 120px;
+  height: 20px;
+  color: #510b31;
+  border-radius: 25px;
+}
+
+.User:hover {
+  color: rgb(255, 177, 157);
+  background-color: #510b31;
+}
+
+.NewUser {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.ViewPosts {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.CreatePost {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.UpdatePost {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.DeletePost {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.Primary-Button {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  padding: 0px;
+  background-color: antiquewhite;
+  border: 0px;
+  width: 140px;
+  height: 40px;
+  color: #510b31;
+  border: 1px solid #510b31;
+}
+
+.Primary-Button:hover,
+#SubmitBtn:hover {
+  background-color: #fbd9d0;
+}
+
+.SubmitEntry {
+  grid-area: 2 / 2 / 6 / 4;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: end;
+}
+
+.Display {
+  width: 700px;
+  height: 240px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #510b31;
+}
+
+.uDisplay, .dDisplay {
+  width: 700px;
+  height: 240px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #510b31;
+}
+
+.uEditor, .dEditor {
+  width: 700px;
+  height: 240px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #510b31;
+  overflow-y: auto;
+}
+
+#secretKey {
+  width: 30px;
+  height: fit-content;
+}
+
+#updateList, #deleteList {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#updateList .item:hover, #deleteList .item:hover {
+    cursor: context-menu;
+}
+
+.item:hover {
+  background-color: antiquewhite;
+}
+
+.column {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#currentUser {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  padding: 10px;
+  width: fit-content;
+  height: fit-content;
+  margin: 0px 5px;
+  border: 1px solid rgb(255, 177, 157);
+  color: rgb(255, 177, 157);
+  background-color: #510b31;
+  border-radius: 25px;
+  align-self: center;
+}
+
+#SubmitBtn {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  padding: 0px;
+  background-color: antiquewhite;
+  width: 100px;
+  height: 30px;
+  color: #510b31;
+  border: 1px solid #510b31;
+  margin: 0px 5px;
+  align-self: center;
+}
+
+footer {
+  width: 100vw;
+  height: 120px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url(../assets/footer.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100vw 120px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+}
+
+#Copyright {
+  margin: 0;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: antiquewhite;
+  font-size: 14px;
+}
