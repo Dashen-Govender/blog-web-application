@@ -1,9 +1,7 @@
 To run on local desktop type:
 
-nodemon index.js
+npm i to install packages and modemon index.js to run the application.
 
 The app will now be available on:
 
 localhost:3000
-
-There is a video explaining the user interface, if you get confused.
